@@ -6,11 +6,11 @@ class Game {
     constructor() {
         this.missed = 0,
         this.phrases = [
-            'Phrase',
-            'Phrase',
-            'Phrase',
-            'Phrase',
-            'Phrase'
+            'First phrase is blue',
+            'Second phrase is light blue',
+            'Third phrase is dark blue',
+            'Fourth phrase is pink',
+            'Last phrase is purple'
         ],
         this.activePhrase = null
     }
