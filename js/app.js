@@ -2,7 +2,7 @@
  * Project 4 - OOP Game App
  * app.js */
 
-const game;
+const game = undefined;
 const buttonStart = document.getElementById("btn__reset");
 const keyboard = document.getElementById("qwerty");
 
