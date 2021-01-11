@@ -3,6 +3,8 @@
  * app.js */
 
 const buttonStart = document.getElementById("btn__reset");
+const keys = document.querySelectorAll(".key");
+
 let game;
 
 // Listen to click on Start button
@@ -14,12 +16,20 @@ buttonStart.addEventListener("click", (e) => {
 
 // Listen to click on keyboard buttons:
 keyboard.addEventListener("click", (e) => {
-    console.log(e);
-    console.log(e.target);
-
     if (e.target.tagName === "BUTTON") {
-        console.log(e.target);
-
-        game.handleInteraction(e);
+        game.handleInteraction(e.target);
     }
 })
+
+// Listen to physical keyboard events:
+document.addEventListener("keydown", (e) => {
+    let pressedKey;
+
+    keys.forEach(key => {
+        if(key.textContent === e.key) {
+            pressedKey = key;
+        }
+    })
+
+    game.handleInteraction(pressedKey);
+});

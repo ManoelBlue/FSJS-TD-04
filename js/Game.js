@@ -51,13 +51,13 @@ class Game {
     };
 
     // Adds logic to user interaction:
-    handleInteraction(e) {
-        const clickedKey = e.target;
+    handleInteraction(key) {
+        const clickedKey = key;
         const chosenLetter = clickedKey.textContent;
         const isMatch = this.activePhrase.phrase.includes(chosenLetter);
         const repeatedKey = 
-        e.target.classList.contains("chose") ||
-        e.target.classList.contains("wrong") ?
+        key.classList.contains("chose") ||
+        key.classList.contains("wrong") ?
         true : false;
 
         // Disables the selected letter’s onscreen keyboard
