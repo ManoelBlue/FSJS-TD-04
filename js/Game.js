@@ -22,10 +22,17 @@ class Game {
 
     // Iniates the game:
     startGame() {
-        console.log("Phrases: " + this.phrases);
-        console.log("Random phrase" + this.getRandomPhrase());
+        // Empty previous letters and pressed keys:
+        phraseUL.innerHTML = "";
+        document.querySelectorAll(".key").forEach(key => {
+            key.classList.remove("chosen");
+            key.classList.remove("wrong");
+        })
 
+        // Remove overlay
         gameOverlay.style.display = "none";
+
+        // Choose and display a phrase:
         const chosenPhrase = this.getRandomPhrase();
         this.activePhrase = chosenPhrase;
         this.activePhrase.addPhraseToDisplay();
