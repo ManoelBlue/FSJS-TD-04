@@ -52,10 +52,6 @@ class Game {
         const chosenLetter = clickedKey.textContent;
         const isMatch = this.activePhrase.phrase.includes(chosenLetter);
 
-        console.log("1: " + this.activePhrase.phrase);
-        console.log("2: " + chosenLetter);
-        console.log("3: " + isMatch);
-
         // Disables the selected letter’s onscreen keyboard
 
 
@@ -80,13 +76,11 @@ class Game {
 
     // Removes one life:
     removeLife() {
-        const hearts = document.querySelectorAll(".tries");
+        const hearts = document.querySelectorAll(".tries img[src='images/liveHeart.png']");
         const lastHeart = hearts[hearts.length - 1];
 
         lastHeart.src = "images/lostHeart.png";
         this.missed += 1;
-
-        console.log(this.missed);
 
         if (this.missed === 5) {
             this.gameOver();
