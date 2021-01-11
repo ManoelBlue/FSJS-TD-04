@@ -48,7 +48,6 @@ class Game {
         console.log("1: " + this.activePhrase.phrase);
         console.log("2: " + chosenLetter);
         console.log("3: " + isMatch);
-        // console.log("4: " + this.activePhrase.phrase.includes(chosenLetter));
 
         // Disables the selected letter’s onscreen keyboard
 
@@ -59,10 +58,10 @@ class Game {
             this.removeLife();
         } else {
             // Handles the correct matches:
-            const isWinner = this.checkForWin();
             clickedKey.classList.add("chosen");
             this.activePhrase.showMatchedLetter(chosenLetter);
 
+            const isWinner = this.checkForWin();
             console.log(isWinner);
 
             if (isWinner) {
@@ -80,6 +79,8 @@ class Game {
         lastHeart.src = "images/lostHeart.png";
         this.missed += 1;
 
+        console.log(this.missed);
+
         if (this.missed === 5) {
             this.gameOver();
         }
@@ -88,8 +89,8 @@ class Game {
     // Checks if the user has guessed the phrase:
     checkForWin() {
         const phraseLetters = document.querySelectorAll(".letter");
-        const lettersArray = Array.prototype.slice.call(phraseLetters);
-        const revealedAll = lettersArray.every(letter => letter.className.includes("show"));
+        const revealedLetters = document.querySelectorAll(".show");
+        const revealedAll = phraseLetters.length === revealedLetters.length ? true : false;
 
         return revealedAll;
     };
