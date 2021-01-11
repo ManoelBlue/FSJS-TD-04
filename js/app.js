@@ -4,7 +4,6 @@
 
 const game = undefined;
 const buttonStart = document.getElementById("btn__reset");
-const keyboard = document.getElementById("qwerty");
 
 // Listen to click on Start button
 // then begin the game:

@@ -29,7 +29,7 @@ class Game {
 
     // Randomly choses a phrase and returns it:
     getRandomPhrase() {
-        const phraseIndex = Math.floor(Math.random() * (this.phrases.length + 1));
+        const phraseIndex = Math.floor(Math.random() * this.phrases.length);
         return this.phrases[phraseIndex];
     };
 
@@ -62,12 +62,24 @@ class Game {
 
     // Removes one life:
     removeLife() {
+        const hearts = document.querySelectorAll(".tries");
+        const lastHeart = hearts[hearts.length - 1];
 
+        lastHeart.src = "images/lostHeart.png";
+        this.missed += 1;
+
+        if (this.missed === 5) {
+            this.gameOver();
+        }
     };
 
     // Checks if the user has guessed the phrase:
     checkForWin() {
+        const phraseLetters = document.querySelectorAll(".letter");
+        const lettersArray = Array.prototype.slice.call(phraseLetters);
+        const revealedAll = lettersArray.every(letter => letter.className.contains("show"));
 
+        return revealedAll;
     };
 
     // Finishes the game:
