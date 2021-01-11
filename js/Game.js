@@ -37,8 +37,7 @@ class Game {
         gameOverlay.style.display = "none";
 
         // Choose and display a phrase:
-        const chosenPhrase = this.getRandomPhrase();
-        this.activePhrase = chosenPhrase;
+        this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
 
         console.log("Chosen phrase: " + chosenPhrase)
