@@ -11,17 +11,19 @@ class Game {
     constructor() {
         this.missed = 0,
         this.phrases = [
-            'First phrase is blue',
-            'Second phrase is light blue',
-            'Third phrase is dark blue',
-            'Fourth phrase is pink',
-            'Last phrase is purple'
+            new Phrase('First phrase is blue'),
+            new Phrase('Second phrase is light blue'),
+            new Phrase('Third phrase is dark blue'),
+            new Phrase('Fourth phrase is pink'),
+            new Phrase('Last phrase is purple')
         ],
         this.activePhrase = null
     }
 
     // Iniates the game:
     startGame() {
+        console.log(this.phrases);
+
         gameOverlay.style.display = "none";
         const chosenPhrase = this.getRandomPhrase();
         this.activePhrase = chosenPhrase;
@@ -35,7 +37,7 @@ class Game {
     };
 
     // Adds logic to user interaction:
-    handleInteraction() {
+    handleInteraction(e) {
         const clickedKey = e.target;
         const chosenLetter = clickedKey.textContent;
         const phraseArray = this.activePhrase.split("");
