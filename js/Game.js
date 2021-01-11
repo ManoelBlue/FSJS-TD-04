@@ -23,10 +23,14 @@ class Game {
     // Iniates the game:
     startGame() {
         // Empty previous letters and pressed keys:
+        // Restore all hearts:
         phraseUL.innerHTML = "";
         document.querySelectorAll(".key").forEach(key => {
             key.classList.remove("chosen");
             key.classList.remove("wrong");
+        })
+        document.querySelectorAll(".tries img").forEach(heart => {
+            heart.src = "images/liveHeart.png";
         })
 
         // Remove overlay
