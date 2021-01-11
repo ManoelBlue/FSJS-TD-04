@@ -35,11 +35,18 @@ class Phrase {
 
     // Checks if the selected letter is a match:
     checkLetter(inputLetter) {
-        return this.phraseArray.includes(inputLetter);
+        const lowerInput = inputLetter.toLowerCase();
+        return this.phraseArray.includes(lowerInput);
     }
 
     // Reveals the letters when they are a match:
-    showMatchedLetter() {
+    showMatchedLetter(inputLetter) {
+        const lowerInput = inputLetter.toLowerCase();
+        const matchingLetters = document.querySelectorAll(`#phrase li.letter.${lowerInput}`);
 
+        matchingLetters.forEach(letter => {
+            letter.classList.remove("hide");
+            letter.classList.add("show");
+        })
     }
 }
