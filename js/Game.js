@@ -22,12 +22,15 @@ class Game {
 
     // Iniates the game:
     startGame() {
-        console.log(this.phrases);
+        console.log("Phrases: " + this.phrases);
+        console.log("Random phrase" + this.getRandomPhrase());
 
         gameOverlay.style.display = "none";
         const chosenPhrase = this.getRandomPhrase();
         this.activePhrase = chosenPhrase;
         this.activePhrase.addPhraseToDisplay();
+
+        console.log("Chosen phrase: " + chosenPhrase)
     };
 
     // Randomly choses a phrase and returns it:
@@ -40,8 +43,12 @@ class Game {
     handleInteraction(e) {
         const clickedKey = e.target;
         const chosenLetter = clickedKey.textContent;
-        const phraseArray = this.activePhrase.split("");
-        const isMatch = phraseArray.includes(chosenLetter);
+        const isMatch = this.activePhrase.phrase.includes(chosenLetter);
+
+        console.log("1: " + this.activePhrase.phrase);
+        console.log("2: " + chosenLetter);
+        console.log("3: " + isMatch);
+        // console.log("4: " + this.activePhrase.phrase.includes(chosenLetter));
 
         // Disables the selected letter’s onscreen keyboard
 
@@ -54,7 +61,9 @@ class Game {
             // Handles the correct matches:
             const isWinner = this.checkForWin();
             clickedKey.classList.add("chosen");
-            this.activePhrase.showMatchedLetter();
+            this.activePhrase.showMatchedLetter(chosenLetter);
+
+            console.log(isWinner);
 
             if (isWinner) {
                 this.gameOver();
@@ -80,7 +89,7 @@ class Game {
     checkForWin() {
         const phraseLetters = document.querySelectorAll(".letter");
         const lettersArray = Array.prototype.slice.call(phraseLetters);
-        const revealedAll = lettersArray.every(letter => letter.className.contains("show"));
+        const revealedAll = lettersArray.every(letter => letter.className.includes("show"));
 
         return revealedAll;
     };
