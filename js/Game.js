@@ -2,6 +2,9 @@
  * Project 4 - OOP Game App
  * Game.js */
 
+// Global variables:
+const gameOverlay = document.getElementById("overlay");
+
 class Game {
     constructor() {
         this.missed = 0,
@@ -17,7 +20,10 @@ class Game {
 
     // Iniates the game:
     startGame() {
-
+        gameOverlay.style.display = "none";
+        const chosenPhrase = this.getRandomPhrase();
+        this.activePhrase = chosenPhrase;
+        this.activePhrase.addPhraseToDisplay();
     };
 
     // Randomly choses a phrase and returns it:
