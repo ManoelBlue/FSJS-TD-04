@@ -4,6 +4,7 @@
 
 // Global variables:
 const gameOverlay = document.getElementById("overlay");
+const overlayH1 = document.getElementById("game-over-message");
 const keyboard = document.getElementById("qwerty");
 
 class Game {
@@ -84,6 +85,16 @@ class Game {
 
     // Finishes the game:
     gameOver() {
+        const isWinner = this.checkForWin();
 
+        gameOverlay.style.display = "flex";
+
+        if (isWinner) {
+            overlayH1.textContent = "YOU ARE A WINNER!!!";
+            gameOverlay.className = "win";
+        } else {
+            overlayH1.textContent = "You lose. =(";
+            gameOverlay.className = "lose";
+        }
     };
 }
