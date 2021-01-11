@@ -55,26 +55,29 @@ class Game {
         const clickedKey = e.target;
         const chosenLetter = clickedKey.textContent;
         const isMatch = this.activePhrase.phrase.includes(chosenLetter);
+        const repeatedKey = 
+        e.target.classList.contains("chose") ||
+        e.target.classList.contains("wrong") ?
+        true : false;
 
         // Disables the selected letter’s onscreen keyboard
-
-
-        if (!isMatch) {
-            // Handles wrong matches:
-            clickedKey.classList.add("wrong");
-            this.removeLife();
-        } else {
-            // Handles the correct matches:
-            clickedKey.classList.add("chosen");
-            this.activePhrase.showMatchedLetter(chosenLetter);
-
-            const isWinner = this.checkForWin();
-            console.log(isWinner);
-
-            if (isWinner) {
-                this.gameOver();
+        // only handles interaction if key was not called before:
+        if (!repeatedKey) {
+            if (!isMatch) {
+                // Handles wrong matches:
+                clickedKey.classList.add("wrong");
+                this.removeLife();
+            } else {
+                // Handles the correct matches:
+                clickedKey.classList.add("chosen");
+                this.activePhrase.showMatchedLetter(chosenLetter);
+    
+                if (this.checkForWin()) {
+                    this.gameOver();
+                }
             }
         }
+
 
     };
 
