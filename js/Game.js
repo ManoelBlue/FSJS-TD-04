@@ -4,6 +4,7 @@
 
 // Global variables:
 const gameOverlay = document.getElementById("overlay");
+const keyboard = document.getElementById("qwerty");
 
 class Game {
     constructor() {
@@ -34,13 +35,28 @@ class Game {
 
     // Adds logic to user interaction:
     handleInteraction() {
+        const clickedKey = e.target;
+        const chosenLetter = clickedKey.textContent;
+        const phraseArray = this.activePhrase.split("");
+        const isMatch = phraseArray.includes(chosenLetter);
 
         // Disables the selected letter’s onscreen keyboard
-        
-        // Handles wrong matches:
 
-        // Handles the correct matches:
 
+        if (!isMatch) {
+            // Handles wrong matches:
+            clickedKey.classList.add("wrong");
+            this.removeLife();
+        } else {
+            // Handles the correct matches:
+            const isWinner = this.checkForWin();
+            clickedKey.classList.add("chosen");
+            this.activePhrase.showMatchedLetter();
+
+            if (isWinner) {
+                this.gameOver();
+            }
+        }
 
     };
 
@@ -50,7 +66,7 @@ class Game {
     };
 
     // Checks if the user has guessed the phrase:
-    removeLife() {
+    checkForWin() {
 
     };
 
