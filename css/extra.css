@@ -10,15 +10,47 @@
 
 @keyframes chosenKey {
     0% {box-shadow: 0 0 0 0 transparent}
+    25% {box-shadow: 0 0 20px 10px #3a3f58}
+    50% {box-shadow: 0 0 40px 20px #3a3f58}
+    75% {box-shadow: 0 0 20px 10px #3a3f58}
+    100% {box-shadow: 0 0 0 0 transparent}
+}
+
+@keyframes showLetter {
+    0% {box-shadow: 0 0 0 0 transparent}
     25% {box-shadow: 0 0 20px 10px #4ac0d5}
     50% {box-shadow: 0 0 40px 20px #4ac0d5}
     75% {box-shadow: 0 0 20px 10px #4ac0d5}
     100% {box-shadow: 0 0 0 0 transparent}
 }
 
+@keyframes heartPump {
+    0% {
+        transform: scale(1);
+        margin: 0;
+    }
+    50% {
+        transform: scale(1.5);
+        margin: 0 15px;
+    }
+    100% {
+        transform: scale(1);
+        margin: 0;
+    }
+}
+
+/* Animations application: */
+
 .wrong {
     animation: wrongKey .3s;
 }
 .chosen {
     animation: chosenKey .3s;
+}
+.show {
+    animation: showLetter .8s
+}
+
+.heart-pump {
+    animation: heartPump 1s;
 }

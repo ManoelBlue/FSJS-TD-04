@@ -87,6 +87,7 @@ class Game {
         const lastHeart = hearts[hearts.length - 1];
 
         lastHeart.src = "images/lostHeart.png";
+        lastHeart.classList.add("heart-pump");
         this.missed += 1;
 
         if (this.missed === 5) {
