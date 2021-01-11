@@ -2,19 +2,21 @@
  * Project 4 - OOP Game App
  * Phrase.js */
 
+// Global variables:
+const phraseUL = document.querySelector("#phrase ul");
+
 class Phrase {
     constructor(phrase) {
         this.phrase = phrase.toLowerCase();
     }
 
+    get phraseArray() {
+        return this.phrase.split("");
+    }
+
     // Adds a placeholder for each letter:
     addPhraseToDisplay() {
-        const phraseArray = this.phrase.split("");
-        const phraseUL = document.querySelector("#phrase ul");
-        console.log(phraseArray);
-        console.log(phraseUL);
-
-        phraseArray.forEach(phraseChar => {
+        this.phraseArray.forEach(phraseChar => {
             const li = document.createElement("li");
 
             if (phraseChar === " ") {
@@ -32,8 +34,8 @@ class Phrase {
     }
 
     // Checks if the selected letter is a match:
-    checkLetter() {
-
+    checkLetter(inputLetter) {
+        return this.phraseArray.includes(inputLetter);
     }
 
     // Reveals the letters when they are a match:
