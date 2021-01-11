@@ -28,7 +28,8 @@ class Game {
 
     // Randomly choses a phrase and returns it:
     getRandomPhrase() {
-
+        const phraseIndex = Math.floor(Math.random() * (this.phrases.length + 1));
+        return this.phrases[phraseIndex];
     };
 
     // Adds logic to user interaction:
