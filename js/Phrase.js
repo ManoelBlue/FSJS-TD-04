@@ -20,12 +20,10 @@ class Phrase {
             const li = document.createElement("li");
 
             if (phraseChar === " ") {
-                console.log(phraseChar);
                 li.className = "space";
                 li.textContent = " ";
                 phraseUL.appendChild(li);
             } else {
-                console.log(phraseChar);
                 li.className = `hide letter ${phraseChar}`;
                 li.textContent = phraseChar;
                 phraseUL.appendChild(li);

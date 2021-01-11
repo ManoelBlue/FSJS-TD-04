@@ -31,6 +31,7 @@ class Game {
         })
         document.querySelectorAll(".tries img").forEach(heart => {
             heart.src = "images/liveHeart.png";
+            heart.classList.remove("heart-pump");
         })
 
         // Remove overlay
@@ -39,8 +40,6 @@ class Game {
         // Choose and display a phrase:
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
-
-        console.log("Chosen phrase: " + chosenPhrase)
     };
 
     // Randomly choses a phrase and returns it:
@@ -86,7 +85,7 @@ class Game {
         const lastHeart = hearts[hearts.length - 1];
 
         lastHeart.src = "images/lostHeart.png";
-        lastHeart.classList.add("heart-pump");
+        hearts.length === 1 ? "" : lastHeart.classList.add("heart-pump");
         this.missed += 1;
 
         if (this.missed === 5) {
