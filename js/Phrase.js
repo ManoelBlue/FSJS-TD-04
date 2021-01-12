@@ -7,11 +7,11 @@ const phraseUL = document.querySelector("#phrase ul");
 
 class Phrase {
     constructor(phrase) {
-        this.phrase = phrase;
+        this.phrase = phrase.toLowerCase();
     }
 
     get phraseArray() {
-        return this.phrase.toLowerCase().split("");
+        return this.phrase.split("");
     }
 
     // Adds a placeholder for each letter:
