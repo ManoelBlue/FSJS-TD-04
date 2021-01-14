@@ -8,4 +8,4 @@
 - add a heart pump to the lost life heart;
 
 ### Additional info:
-This project is the fourth part of a Treehouse Full Stack JavaScript Techdegree. Therefore, my personal work is in the the js folder, plus the extra.css file (ithin the css folder). The other styles and the markup were provided.
+This project is the fourth part of a Treehouse Full Stack JavaScript Techdegree. Therefore, my personal work is in the js folder, plus the extra.css file (within the css folder). The other styles and the markup were provided.
