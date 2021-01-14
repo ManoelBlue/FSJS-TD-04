@@ -1,7 +1,4 @@
-/* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
- * app.js */
-
+// Global variables:
 const buttonStart = document.getElementById("btn__reset");
 const keys = document.querySelectorAll(".key");
 

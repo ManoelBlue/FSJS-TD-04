@@ -1,7 +1,3 @@
-/* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
- * Phrase.js */
-
 // Global variables:
 const phraseUL = document.querySelector("#phrase ul");
 
