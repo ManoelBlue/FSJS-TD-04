@@ -18,18 +18,6 @@ class Game {
 
     // Iniates the game:
     startGame() {
-        // Empty previous letters and pressed keys:
-        // Restore all hearts:
-        phraseUL.innerHTML = "";
-        document.querySelectorAll(".key").forEach(key => {
-            key.classList.remove("chosen");
-            key.classList.remove("wrong");
-        })
-        document.querySelectorAll(".tries img").forEach(heart => {
-            heart.src = "images/liveHeart.png";
-            heart.classList.remove("heart-pump");
-        })
-
         // Remove overlay
         gameOverlay.style.display = "none";
 
@@ -46,11 +34,10 @@ class Game {
 
     // Adds logic to user interaction:
     handleInteraction(key) {
-        const clickedKey = key;
-        const chosenLetter = clickedKey.textContent;
+        const chosenLetter = key.textContent;
         const isMatch = this.activePhrase.phrase.includes(chosenLetter);
         const repeatedKey = 
-        key.classList.contains("chose") ||
+        key.classList.contains("chosen") ||
         key.classList.contains("wrong") ?
         true : false;
 
@@ -59,11 +46,11 @@ class Game {
         if (!repeatedKey) {
             if (!isMatch) {
                 // Handles wrong matches:
-                clickedKey.classList.add("wrong");
+                key.classList.add("wrong");
                 this.removeLife();
             } else {
                 // Handles the correct matches:
-                clickedKey.classList.add("chosen");
+                key.classList.add("chosen");
                 this.activePhrase.showMatchedLetter(chosenLetter);
     
                 if (this.checkForWin()) {
@@ -71,8 +58,6 @@ class Game {
                 }
             }
         }
-
-
     };
 
     // Removes one life:
@@ -107,9 +92,25 @@ class Game {
         if (isWinner) {
             overlayH1.textContent = "YOU ARE A WINNER!!!";
             gameOverlay.className = "win";
+            this.resetGame();
         } else {
             overlayH1.textContent = "You lose. =(";
             gameOverlay.className = "lose";
+            this.resetGame();
         }
+    };
+
+    resetGame() {
+        // Empty previous letters and pressed keys:
+        // Restore all hearts:
+        phraseUL.innerHTML = "";
+        document.querySelectorAll(".key").forEach(key => {
+            key.classList.remove("chosen");
+            key.classList.remove("wrong");
+        })
+        document.querySelectorAll(".tries img").forEach(heart => {
+            heart.src = "images/liveHeart.png";
+            heart.classList.remove("heart-pump");
+        })
     };
 }

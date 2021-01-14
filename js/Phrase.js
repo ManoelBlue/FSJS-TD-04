@@ -41,6 +41,7 @@ class Phrase {
         matchingLetters.forEach(letter => {
             letter.classList.remove("hide");
             letter.classList.add("show");
+            letter.textContent.toUpperCase();
         })
     }
 }
