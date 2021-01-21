@@ -1,4 +1,4 @@
-# Full Stack JavaScript Techdegree Project 03
+# Full Stack JavaScript Techdegree Project 04
     OOP Game Show App
     Uses JavaScript to create a simple game for guessing a secret phrase.
     Uses CSS to create fun animations that also improve the user experience.
